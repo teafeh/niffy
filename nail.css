@@ -2,6 +2,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 #preloader{
@@ -21,54 +22,7 @@
     width: 50%;
 }
 
-header{
-    background-color: black;
-    padding: 10px;
-}
 
-.nav-bar{
-    background-color: black;
-    width: 80%;
-    margin: auto;
-
-}
-
-.header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.header h1{
-  font-family: "EB Garamond", serif;
-  font-optical-sizing: auto;
-  font-weight: 800;
-  font-style: normal;
-  color: palevioletred;
-  align-items: center;
-
-}
-
-.icons ul{
-    list-style: none;
-    display: flex;
-    align-items: center;
-}
-
-.icons ul li{
-    margin: 15px;
-}
-
-.icons ul li a{
-    color: palevioletred;
-    font-size: 20px;
-    text-decoration: none;
-
-}
-
-.icons ul li a:hover{
-    color: white;
-}
 .banner_main{
     position: relative;
     display: flex;
@@ -176,7 +130,7 @@ header{
         height: 70vh;
     }
     .header-text #h1-header{
-        visibility: hidden;
+        display: none;
     }
     .reservation{
         top: 50%;
@@ -192,11 +146,8 @@ header{
         display: grid;
         grid-template-columns: auto auto;
         gap: 1rem;
-        /* width: 150px;
-        margin: auto; */
     }
     .we-box{
-        /* flex-direction: column; */
         width: 150px;
         height: 220px;
         padding: 5px;
@@ -351,20 +302,13 @@ form{
     border-right: 2px solid #6F2D31;
     border-left: 2px solid #6F2D31;
     display: grid;
-    /* grid-template-areas: 
-    "input-name" "input-number"
-    "input-day" "input-time"
-    "option-design"
-    ; */
     gap: 2rem;
     padding: 20px;
     position: relative;
     z-index: 5;
-    /* width: 400px; */
 }
 form input{
     padding: 5px;
-    /* width: 300px; */
     border: thin solid #6F2D31;
 }
 form .textarea{
@@ -373,7 +317,21 @@ form .textarea{
     
 }
 @media(max-width:766px){
-    .form{
-        width: 100px;
+    .header-table h2{
+       font-size: 1rem;
+    }
+    .form-appointment{
+        width: 300px;
+        margin: auto;
+    }
+    form .textarea{
+        width: 100%;
+    }
+    .input-block{
+        display: inline-block;
+    }
+    .input-block input{
+        width: 100%;
+        padding: 5px;
     }
 }

@@ -186,6 +186,7 @@
     position: relative;
     overflow: hidden;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     border: none;
 }
@@ -313,15 +314,29 @@ form{
     padding: 20px;
     position: relative;
     z-index: 5;
+    justify-content: center;
 }
 form input{
     padding: 5px;
     border: thin solid #6F2D31;
 }
 form .textarea{
-    height: 200px;
+    height: 150px;
     background: transparent;
+    border: thin solid #6F2D31;
     
+}
+#service-type{
+    padding: 5px;
+    background-color: transparent;
+    display: flex;
+    justify-content: end;
+    border: thin solid #6F2D31;
+}
+#submit-btn{
+    padding: 10px 20px;
+    background-image: linear-gradient(#fff, palevioletred);
+
 }
 @media(max-width:766px){
     .header-table h2{
@@ -331,13 +346,13 @@ form .textarea{
         width: 300px;
         margin: auto;
     }
-    form .textarea{
+    /* form .textarea{
         width: 100%;
-    }
+    } */
     .input-block{
         display: inline-block;
     }
-    .input-block input{
+    .input-block input, #service-type{
         width: 100%;
         padding: 5px;
     }
@@ -348,6 +363,7 @@ form .textarea{
 .card-content{
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
 }
 .label{
@@ -363,7 +379,7 @@ form .textarea{
 }
 .card{
     width: 250px;
-    border: thin solid black;
+    /* border: thin solid black; */
     height: 200px;
     padding: 20px;
     margin: 40px;
@@ -412,22 +428,19 @@ form .textarea{
 .h-date{
     color: #FFE6ED;
 }
-@media(max-width:500px){
-    .card-content{
-      display: block;
-    }
-}
 .booking-policy{
-    border: thin solid palevioletred;
+    /* border: thin solid palevioletred; */
     position: relative;
     z-index: 6;
     display: flex;
     gap: 1rem;
     padding: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .policy-card{
     width: 200px;
-    border: thin solid black;
+    /* border: thin solid black; */
 }
 .i-card{
     display: flex;
@@ -477,4 +490,22 @@ form .textarea{
 .policy-card p{
     text-align: center;
     padding: 10px;
+    color: #000;
+    
+}
+.image-card{
+    background-color: #fff;
+    width: 140px;
+    height: 200px;
+    rotate: 20deg;
+    border: 10px solid #000;
+    border-radius: 25px;
+    position: relative;
+}
+.image-card img{
+    border-radius: 15px;
+    position: absolute;
+    width: 120px;
+    height: 180px;
+    object-fit: cover;
 }

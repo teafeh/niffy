@@ -20,7 +20,7 @@
    <header>
       <nav class="nav-bar">
          <div class="header">
-            <h1>Nhiffy Suite</h1>
+            <a href="/index.html"><h1>Nhiffy Suite</h1></a>
 
             <div class="icons">
                <ul>
@@ -62,7 +62,7 @@
          <h2 style="font-size: 4rem;" id="h1-header">Book An Appointment Now</h2>
       </div>
       <div class="reservation">
-         <a href="#">Get A Reservation Here</a>
+         <a href="#booking">Get A Reservation Here</a>
       </div>
    </section>
    <section class="about-us">
@@ -96,22 +96,34 @@
          </div>
       </div>
    </section>
-   <section class="appointment">
+   <section class="appointment" id="booking">
       <div class="form-appointment">
          <div class="header-table" style="text-align: center; padding: 5px;">
             <h2>Book Your Appointmnet Now!</h2>
          </div>
          <form id="emailForm">
             <div style="display: flex; gap: 2rem;" class="input-block">
+               <div>
+                  <label for="Name">Name</label>
                 <input type="text" id="name" placeholder="Name" class="input-name">
+               </div>
+                <div>
+                  <label for="Date">Date</label>
                 <input type="date" id="date">
+                </div>
             </div>
             <div style="display: flex; gap: 2rem;" class="input-block">
+               <div>
+                  <label for="time">Time</label>
                 <input type="time" id="time">
+               </div>
+                <div>
+                  <label for="service">Service-Type</label>
                 <select id="service-type">
                     <option value="Home service">Home service</option>
                     <option value="Walk in">Walk in</option>
-                </select>  
+                </select>
+                </div>  
             </div>
             <textarea id="note" class="textarea" placeholder="Leave A Note"></textarea>
             <button type="button" id="submit-btn">Get Glam!</button>
@@ -129,17 +141,17 @@
                <div class="label">
                   Contact
                </div>
-                  <a href="" class="card-element">
+                  <a href="https://www.tiktok.com/@nhiffy_nails8?_t=ZM-8uKgvtvsBq2&_r=1" class="card-element">
                      <img src="./icon/tiktok.svg" alt="">
-                     Tiktok
+                     @nhiffy_nails8
                   </a>
                   <a href="" class="card-element">
                      <div><img src="./icon/envelope.svg" alt=""></div>
-                     Gmail
+                     appointment@niffy.store
                   </a>
                   <a href="" class="card-element">
                      <img src="./icon/telephone.svg" alt="">
-                     Telephone
+                     +234 815 3298 577
                   </a>
             </div>
             <div class="card">
@@ -151,13 +163,13 @@
                     </div>
                      <div class="date">
                         <span class="h-date">MON - SAT</span>
-                        <span>8am - 6pm</span>
+                        <span style="color: #08050596;">8am - 6pm</span>
                         <!-- <p></p>
                         <p</p> -->
                      </div>
                      <div class="date">
                         <span class="h-date">SUN</span>
-                        <span>CLOSE</span>
+                        <span style="color: #08050596;">CLOSE</span>
                      </div>
             </div>
          </div>
@@ -200,31 +212,28 @@
             </div>
          </div>
       </div>
-      <div>
-         <div class="image-card position">
+         <div class="image-card card-i-1">
             <img src="./img/nhiffynail1.jpg" alt="">
          </div>
-         <div class="image-card position">
-            <img src="./img/nhiffynail2.jpg" alt="">
+         <div class="image-card card-i-2">
+            <img src="./img/nhffy22.jpg" alt="">
          </div>
-         <div class="image-card position">
-            <img src="./img/nhiifynail3.jpg" alt="">
+         <div class="image-card card-i-3">
+            <img src="./img/nhiffy2.jpg" alt="">
          </div>
-      </div>
-      <div>
-         <div class="image-card position">
-            <img src="./img/niffhynail4.jpg" alt="">
+         <div class="image-card card-i-4">
+            <img src="./img/nhiffuy1.jpg" alt="">
          </div>
-         <div class="image-card position">
-            <img src="./img/nhiffynail5.jpg" alt="">
+         <div class="image-card card-i-5">
+            <img src="./img/2025-03-01 23.08.27.jpg" alt="">
          </div>
-         <div class="image-card position">
-            <img src="./img/nhiffynail1.jpg" alt="">git
+         <div class="image-card card-i-6">
+            <img src="./img/nhiifynail3.jpg" alt="">git
          </div>
-      </div>
-      
+        </div>
       <div class="background image-2">
          <img src="./img/nail-polish-open.fda2e241.png" alt="">
+      </div>
       </div>
       <div class="rectangle"></div>
       <div class="background-color-2"></div>

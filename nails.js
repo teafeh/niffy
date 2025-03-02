@@ -11,9 +11,8 @@ window.addEventListener("load", function(){
 });
 
 
-
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("submit-btn").addEventListener("click", function() {
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("submit-btn").addEventListener("click", function () {
         console.log("Submit button clicked!");
 
         const name = document.getElementById("name").value;
@@ -33,10 +32,21 @@ document.addEventListener("DOMContentLoaded", function() {
             `Hello ${name},\n\nI'm excited to book an appointment with you!\nHere are my details:\nDate: ${date}\nTime: ${time}\nService: ${serviceType}\n\nLooking forward to a fabulous experience!\n\nBest,\n${name}`
         );
 
-        // Use mailto instead of Gmail web link
-        const mailtoLink = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
+        // Detect if the user is on a mobile device
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-        // Open mailto link (works on mobile)
-        window.location.href = mailtoLink;
+        if (isMobile) {
+            // Use mailto on mobile (opens default email app)
+            window.location.href = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
+        } else {
+            // Open Gmail in a new tab on PC
+            const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipientEmail}&su=${subject}&body=${body}`;
+            const newTab = window.open(gmailLink, "_blank");
+
+            // If pop-ups are blocked, show a fallback alert
+            if (!newTab) {
+                alert("Pop-ups are blocked. Please enable pop-ups or use your email app manually.");
+            }
+        }
     });
 });

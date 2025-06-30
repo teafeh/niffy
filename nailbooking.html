@@ -1,248 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book a Session - Nhiffy Suite</title>
+    <!-- Unified CSS File -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Bootstrap CSS for Carousel -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <!-- Preloader -->
+    <div id="preloader">
+      <div class="spinner"></div>
+    </div>
 
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Nhiffy Suite-Book a session</title>
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-      <link rel="stylesheet" href="/style.css">
-   <link rel="stylesheet" href="/nail.css">
-</head>
-
-<body>
-   <!--preloader-->
-   <div id="preloader">
-      <img src="img/nails.gif" alt="loading" />
-   </div>
-   <header>
+    <header class="site-header">
       <nav class="nav-bar">
-         <div class="header">
-            <a href="/index.html"><h1>Nhiffy Suite</h1></a>
-
-            <div class="icons">
-               <ul>
-                  <li><a href="https://www.instagram.com/nhiffy_classy_claws?igsh=MTY0cWl0NzlnNmh5Mw=="><i
-                           class="bi bi-instagram"></i></a></i></li>
-                  <li><a href="https://wa.link/66k2if"><i class="bi bi-whatsapp"></i></a></li>
-               </ul>
-            </div>
-         </div>
-      </nav>
-   </header>
-   <section class="banner_main">
-      <div class="content">
-         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-               <div class="carousel-item active">
-                  <img src="./img/bnails-1.jpg" class="d-block w-100" alt="...">
-               </div>
-               <div class="carousel-item">
-                  <img src="./img/bnails-2.jpg" class="d-block w-100" alt="...">
-               </div>
-               <div class="carousel-item">
-                  <img src="./img/bnails-3.jpg" class="d-block w-100" alt="...">
-               </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
-               data-bs-slide="prev">
-               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-               <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
-               data-bs-slide="next">
-               <span class="carousel-control-next-icon" aria-hidden="true"></span>
-               <span class="visually-hidden">Next</span>
-            </button>
-         </div>
-      </div>
-      <div class="header-text">
-         <h2 style="font-size: 4rem;" id="h1-header">Book An Appointment Now</h2>
-      </div>
-      <div class="reservation">
-         <a href="#booking">Get A Reservation Here</a>
-      </div>
-   </section>
-   <section class="about-us">
-      <div class="what-we">
-         <h2>What we do</h2>
-         <div class="we-content">
-            <div class="we-box">
-               <img src="./img/weicon1.png" alt="">
-               <h3>Nail Art</h3>
-               <p>Enhancing your nails with precision and creativity—expert nail art at Nhiffy Suit, tailored just for
-                  you!</p>
-            </div>
-            <div class="we-box">
-               <img src="./img/weicon2.png" alt="">
-               <h3>Manicure</h3>
-               <p>Experience flawless nails with our expert manicure services, designed to keep your hands looking
-                  beautiful and well-groomed.</p>
-            </div>
-            <div class="we-box">
-               <img src="./img/weicon3.png" alt="">
-               <h3>Pedicure</h3>
-               <p>Treat your feet to a professional pedicure—relax, refresh, and enjoy perfectly groomed nails with
-                  expert care!</p>
-            </div>
-            <div class="we-box">
-               <img src="./img/weicon4.png" alt="">
-               <h3>Paraffin wax</h3>
-               <p>Indulge in a soothing paraffin wax treatment—perfect for softening skin, improving circulation, and
-                  giving your hands a luxurious, spa-like experience.</p>
-            </div>
-         </div>
-      </div>
-   </section>
-   <section class="appointment" id="booking">
-      <div class="form-appointment">
-         <div class="header-table" style="text-align: center; padding: 5px;">
-            <h2>Book Your Appointmnet Now!</h2>
-         </div>
-         <form id="emailForm">
-            <div style="display: flex; gap: 2rem;" class="input-block">
-               <div>
-                  <label for="Name">Name</label>
-                <input type="text" id="name" placeholder="Name" class="input-name">
-               </div>
-                <div>
-                  <label for="Date">Date</label>
-                <input type="date" id="date">
-                </div>
-            </div>
-            <div style="display: flex; gap: 2rem;" class="input-block">
-               <div>
-                  <label for="time">Time</label>
-                <input type="time" id="time">
-               </div>
-                <div>
-                  <label for="service">Service-Type</label>
-                <select id="service-type">
-                    <option value="Home service">Home service</option>
-                    <option value="Walk in">Walk in</option>
-                </select>
-                </div>  
-            </div>
-            <textarea id="note" class="textarea" placeholder="Leave A Note"></textarea>
-            <button type="button" id="submit-btn">Get Glam!</button>
-        </form>
-      </div>
-      <div class="background image-1">
-         <img src="./img/neil-main-mockup.000cef4f.png" alt="">
-      </div>
-      <div class="background-color-1"></div>
-   </section>
-   <section class="appointment-1">
-      <div class="block-card">
-         <div class="card-content">
-            <div class="card">
-               <div class="label">
-                  Contact
-               </div>
-                  <a href="https://www.tiktok.com/@nhiffy_nails8?_t=ZM-8uKgvtvsBq2&_r=1" class="card-element">
-                     <img src="./icon/tiktok.svg" alt="">
-                     @nhiffy_nails8
-                  </a>
-                  <a href="" class="card-element">
-                     <div><img src="./icon/envelope.svg" alt=""></div>
-                     appointment@niffy.store
-                  </a>
-                  <a href="" class="card-element">
-                     <img src="./icon/telephone.svg" alt="">
-                     +234 815 3298 577
-                  </a>
-            </div>
-            <div class="card">
-                  <div class="label">
-                     Hours
-                  </div>
-                    <div class="cardimage">
-                     <img src="./icon//clock.svg" class="clock" alt="">
-                    </div>
-                     <div class="date">
-                        <span class="h-date">MON - SAT</span>
-                        <span style="color: #08050596;">8am - 6pm</span>
-                        <!-- <p></p>
-                        <p</p> -->
-                     </div>
-                     <div class="date">
-                        <span class="h-date">SUN</span>
-                        <span style="color: #08050596;">CLOSE</span>
-                     </div>
-            </div>
-         </div>
-         <div class="booking-policy">
-            <div class="policy-card">
-               <div class="i-card">
-                  <img src="./icon/people.svg" class="icon" alt="">
-               </div>
-               <div class="policy-card-h">
-                  GUEST
-               </div>
-               <p>No extra guests, please. Children allowed only if being serviced, this help to maintain a calm and focused environment.</p>
-            </div>
-            <div class="policy-card">
-               <div class="i-card">
-                  <img src="./icon/calendar-x.svg" class="icon" alt="">
-               </div>
-               <div class="policy-card-h1">
-                  CANCELLATION
-               </div>
-               <p>Cancle or reschedule at least 48 hours in advance.</p>
-            </div>
-            <div class="policy-card">
-               <div class="i-card">
-                  <img src="./icon/credit-card.svg" class="icon" alt="">
-               </div>
-               <div class="policy-card-h2">
-                  DEPOSITS
-               </div>
-               <p>Cancellation or resheduling require 48 hours' notice.</p>
-            </div>
-            <div class="policy-card">
-               <div class="i-card">
-                  <img src="./icon/calendar2-event.svg" class="icon" alt="">
-               </div>
-               <div class="policy-card-h3">
-                  LATE ARRIVALS
-               </div>
-               <p>Please arrive on time. A 15-minutes grace preiod applies; late arrivals may result in a shortened service or cancellation.</p>
-            </div>
-         </div>
-      </div>
-         <div class="image-card card-i-1">
-            <img src="./img/nhiffynail1.jpg" alt="">
-         </div>
-         <div class="image-card card-i-2">
-            <img src="./img/nhffy22.jpg" alt="">
-         </div>
-         <div class="image-card card-i-3">
-            <img src="./img/nhiffy2.jpg" alt="">
-         </div>
-         <div class="image-card card-i-4">
-            <img src="./img/nhiffuy1.jpg" alt="">
-         </div>
-         <div class="image-card card-i-5">
-            <img src="./img/2025-03-01 23.08.27.jpg" alt="">
-         </div>
-         <div class="image-card card-i-6">
-            <img src="./img/nhiifynail3.jpg" alt="">git
-         </div>
+        <div class="logo">
+          <a href="index.html">Nhiffy<span>Suite</span></a>
         </div>
-      <div class="background image-2">
-         <img src="./img/nail-polish-open.fda2e241.png" alt="">
-      </div>
-      </div>
-      <div class="rectangle"></div>
-      <div class="background-color-2"></div>
-   </section>
+        <div class="nav-icons">
+          <ul>
+            <li>
+              <a
+                href="https://www.instagram.com/nhiffy_classy_claws?igsh=MTY0cWl0NzlnNmh5Mw=="
+                target="_blank"
+                aria-label="Instagram"
+                ><i class="bi bi-instagram"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://wa.link/66k2if"
+                target="_blank"
+                aria-label="WhatsApp"
+                ><i class="bi bi-whatsapp"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
 
+    <main>
+      <!-- Hero Carousel Section -->
+      <section class="booking-hero">
+        <div id="nailCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="./img/bnails-1.jpg"
+                class="d-block w-100"
+                alt="Elegant pink nail art"
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <h2 class="fade-in">Book An Appointment Now</h2>
+                <a href="#booking-form" class="btn fade-in"
+                  >Get a Reservation</a
+                >
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="./img/bnails-2.jpg"
+                class="d-block w-100"
+                alt="Stylish blue and white nails"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="./img/bnails-3.jpg"
+                class="d-block w-100"
+                alt="Classic red manicure"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"></script>
-   <script src="/nails.js"></script>
-</body>
+      <!-- What We Do Section -->
+      <section class="container what-we-do">
+        <h2 class="fade-in">Our Signature Services</h2>
+        <div class="we-grid">
+          <div class="we-box fade-in">
+            <img src="./img/weicon1.png" alt="Nail art icon" />
+            <h3>Nail Art</h3>
+            <p>
+              Enhancing your nails with precision and creativity, tailored just
+              for you!
+            </p>
+          </div>
+          <div class="we-box fade-in">
+            <img src="./img/weicon2.png" alt="Manicure icon" />
+            <h3>Manicure</h3>
+            <p>
+              Flawless nails with expert services, designed to keep your hands
+              beautiful.
+            </p>
+          </div>
+          <div class="we-box fade-in">
+            <img src="./img/weicon3.png" alt="Pedicure icon" />
+            <h3>Pedicure</h3>
+            <p>
+              Treat your feet to a professional pedicure—relax, refresh, and
+              enjoy groomed nails.
+            </p>
+          </div>
+          <div class="we-box fade-in">
+            <img src="./img/weicon4.png" alt="Paraffin wax icon" />
+            <h3>Paraffin Wax</h3>
+            <p>
+              A soothing treatment to soften skin and give your hands a
+              luxurious, spa-like feel.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Appointment Form Section -->
+      <section class="container" id="booking-form">
+        <div class="appointment-section fade-in">
+          <div class="form-appointment">
+            <h2>Book Your Appointment</h2>
+            <form id="emailForm">
+              <div class="input-group">
+                <div class="input-field">
+                  <label for="name">Full Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    placeholder="e.g., Jane Doe"
+                    required
+                  />
+                </div>
+                <div class="input-field">
+                  <label for="service-type">Service Type</label>
+                  <select id="service-type" required>
+                    <option value="Home service">Home Service</option>
+                    <option value="Walk in">Walk-in</option>
+                  </select>
+                </div>
+              </div>
+              <div class="input-group">
+                <div class="input-field">
+                  <label for="date">Preferred Date</label>
+                  <input type="date" id="date" required />
+                </div>
+                <div class="input-field">
+                  <label for="time">Preferred Time</label>
+                  <input type="time" id="time" required />
+                </div>
+              </div>
+              <div class="input-field">
+                <label for="note">Additional Notes (Optional)</label>
+                <textarea
+                  id="note"
+                  placeholder="Any specific designs or requests?"
+                ></textarea>
+              </div>
+
+              <!-- 
+                          ===============================================
+                          THIS IS THE BUTTON THAT WAS MISSING.
+                          IT IS NOW CORRECTLY PLACED WITHIN THE <form> TAG.
+                          ===============================================
+                        -->
+              <button type="submit" id="submit-btn" class="btn">
+                Get Glam!
+              </button>
+              <div id="form-feedback">
+                Preparing your booking request... Please check your email
+                client.
+              </div>
+            </form>
+          </div>
+          <div class="appointment-image">
+            <img
+              src="./img/neil-main-mockup.000cef4f.png"
+              alt="Nail polish and art tools"
+              style="border-radius: 10px"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery Section -->
+      <section class="container gallery-section">
+        <h2 class="fade-in">Our Work</h2>
+        <p>
+          Click on an image to see details, leave a comment, or show some love!
+        </p>
+        <div class="gallery-grid" id="gallery-grid">
+          <!-- Images will be loaded here by JavaScript -->
+          <div class="spinner" id="gallery-loader"></div>
+        </div>
+      </section>
+
+      <!-- The Modal for Likes and Comments -->
+      <div id="gallery-modal" class="modal-overlay">
+        <div class="modal-content">
+          <span class="modal-close">×</span>
+          <img id="modal-img" src="" alt="Enlarged nail design" />
+          <h3 id="modal-title"></h3>
+          <div class="modal-interaction">
+            <button id="like-btn" class="btn-like">
+              <i class="bi bi-heart"></i> Like (<span id="like-count">0</span>)
+            </button>
+          </div>
+          <div class="comments-section">
+            <h4>Comments</h4>
+            <div id="comments-list"></div>
+            <div class="comment-form">
+              <input
+                type="text"
+                id="comment-input"
+                placeholder="Add an anonymous comment..."
+              />
+              <button id="comment-submit-btn">Post</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Booking Policy Section -->
+      <section class="container">
+        <h2 style="text-align: center" class="fade-in">Booking Policies</h2>
+        <div class="policy-grid" style="margin-top: 40px">
+          <div class="policy-card fade-in">
+            <i class="bi bi-people icon"></i>
+            <h3>GUESTS</h3>
+            <p>
+              No extra guests, please. This helps maintain a calm and focused
+              environment.
+            </p>
+          </div>
+          <div class="policy-card fade-in">
+            <i class="bi bi-calendar-x icon"></i>
+            <h3>CANCELLATION</h3>
+            <p>
+              Please cancel or reschedule at least 48 hours in advance to avoid
+              any fees.
+            </p>
+          </div>
+          <div class="policy-card fade-in">
+            <i class="bi bi-credit-card icon"></i>
+            <h3>DEPOSITS</h3>
+            <p>
+              A non-refundable deposit may be required to secure your
+              appointment slot.
+            </p>
+          </div>
+          <div class="policy-card fade-in">
+            <i class="bi bi-clock-history icon"></i>
+            <h3>LATE ARRIVALS</h3>
+            <p>
+              A 15-minute grace period applies. Late arrivals may result in a
+              shortened service.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p><a href="#">Privacy Policy</a></p>
+      <p>© 2024 Nhiffy Suite. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JS Files -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+
+    <!-- === FIREBASE GALLERY SCRIPTS START === -->
+<script type="module">
+    // Using the latest version numbers as provided by Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+    import { getFirestore, collection, getDocs, doc, updateDoc, addDoc, query, orderBy, serverTimestamp, increment } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyBXZ-ika8YPywIifqMlLg3eX2pi74lpOuM", 
+        authDomain: "nhiffy-suite-website.firebaseapp.com",
+        projectId: "nhiffy-suite-website",
+        storageBucket: "nhiffy-suite-website.appspot.com",
+        messagingSenderId: "951180333097",
+        appId: "1:951180333097:web:87a74f453684cce917cc38"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // --- Get HTML Elements (this part remains the same) ---
+    const galleryGrid = document.getElementById("gallery-grid");
+    const modal = document.getElementById("gallery-modal");
+    // ... all other getElementById calls
+
+    // All the functions (renderGallery, openModal, etc.) remain exactly the same as in the previous answer.
+    // The v9+ modular syntax is compatible across these versions.
+
+    // --- Render Gallery ---
+    async function renderGallery() {
+        const galleryQuery = query(collection(db, "gallery"), orderBy("createdAt", "desc"));
+        const querySnapshot = await getDocs(galleryQuery);
+        querySnapshot.forEach((doc) =>{
+          console.log(doc);
+          
+        })
+       
+        
+        // galleryGrid.innerHTML = "";
+        // if (querySnapshot.empty) {
+        //     galleryGrid.innerHTML = "<p>No work has been uploaded yet. Check back soon!</p>";
+        //     return;
+        // }
+        // querySnapshot.forEach((doc) => {
+        //     const image = doc.data();
+        //     const galleryItem = document.createElement("div");
+        //     galleryItem.className = "gallery-item fade-in";
+        //     galleryItem.innerHTML = `<img src="${image.imageUrl}" alt="${image.title}">`;
+        //     galleryItem.addEventListener("click", () => openModal(doc.id, image));
+        //     galleryGrid.appendChild(galleryItem);
+        // });
+        
+        // // This part needs access to the appearOnScroll from main.js
+        // if (window.appearOnScroll) {
+        //      document.querySelectorAll('.gallery-item.fade-in').forEach(item => window.appearOnScroll.observe(item));
+        // }
+    }
+
+    // --- (The rest of the functions: openModal, renderComments, likeBtn, commentSubmitBtn, etc. are identical to the previous answer) ---
+    // PASTE THE REST OF THE JAVASCRIPT LOGIC FROM THE PREVIOUS RESPONSE HERE.
+    // I am omitting it for brevity, but you need the full script.
+
+    // Initial call to load the gallery
+    renderGallery();
+</script>
+    <!-- === FIREBASE GALLERY SCRIPTS END === -->
+  </body>
 </html>

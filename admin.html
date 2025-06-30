@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      /* Simple styles to hide/show sections */
+      #login-section,
+      #admin-panel {
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: var(--card-bg);
+        border-radius: 10px;
+      }
+      #admin-panel {
+        display: none; /* Hidden by default */
+      }
+      #adminEmail, #adminPassword{
+        font-size: 1rem;
+        padding: 5px;
+      }
+      .btnLogin{
+        padding: 7px;
+        border: 1px solid salmon;
+        border-radius: 6px;
+        cursor: pointer;
+        background-color: var(--border-color);
+        color: #fff;
+      }
+      .btnLogin:hover{
+        transform: translateY(5px);
+        transition: 1s;
+      }
+    </style>
+  </head>
+  <body style="padding: 20px">
+    <!-- Login Form -->
+    <div id="login-section">
+      <h1>Admin Login</h1>
+      <div class="input-field" style="margin-bottom: 15px">
+        <label for="adminEmail">Email</label>
+        <input
+          type="email"
+          id="adminEmail"
+          placeholder="Enter your admin email"
+        />
+      </div>
+      <div class="input-field">
+        <label for="adminPassword">Password</label>
+        <input
+          type="password"
+          id="adminPassword"
+          placeholder="Enter your password"
+        />
+      </div>
+      <button id="loginBtn" class="btnLogin" style="margin-top: 20px">Login</button>
+      <p id="loginStatus" style="margin-top: 15px"></p>
+    </div>
+
+    <!-- Admin Panel (Hidden until login) -->
+    <div id="admin-panel">
+      <h1>Add New Work to Gallery</h1>
+      <div
+        style="
+          background: #252525;
+          padding: 15px;
+          border-radius: 8px;
+          margin-bottom: 20px;
+        "
+      >
+        <h3 style="margin-bottom: 10px">
+          Instructions (using
+          <a href="https://imgbb.com/" target="_blank">ImgBB.com</a>):
+        </h3>
+        <ol style="margin-left: 20px; font-size: 0.9rem">
+          <li>Go to ImgBB and upload your image.</li>
+          <li>Set autodelete to "Don't autodelete".</li>
+          <li>After uploading, from the dropdown select **"Direct link"**.</li>
+          <li>Copy the URL and paste it below.</li>
+        </ol>
+      </div>
+      <div class="input-field" style="margin-bottom: 15px">
+        <label for="imageTitle">Image Title</label>
+        <input
+          type="text"
+          id="imageTitle"
+          placeholder="e.g., 'Chrome Hearts Design'"
+        />
+      </div>
+      <div class="input-field">
+        <label for="imageUrl">Direct Image URL</label>
+        <input type="text" id="imageUrl" placeholder="https://i.ibb.co/..." />
+      </div>
+      <button id="addBtn" class="btn" style="margin-top: 20px">
+        Add to Gallery
+      </button>
+      <p id="statusMessage" style="margin-top: 15px"></p>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+      import {
+        getAuth,
+        signInWithEmailAndPassword,
+        onAuthStateChanged,
+      } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
+      import {
+        getFirestore,
+        collection,
+        addDoc,
+        serverTimestamp,
+      } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyBXZ-ika8YPywIifqMlLg3eX2pi74lpOuM", 
+        authDomain: "nhiffy-suite-website.firebaseapp.com",
+        projectId: "nhiffy-suite-website",
+        storageBucket: "nhiffy-suite-website.appspot.com",
+        messagingSenderId: "951180333097",
+        appId: "1:951180333097:web:87a74f453684cce917cc38"
+    };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+
+      // Now that the components are imported, we can safely call the 'get' functions
+      const auth = getAuth(app);
+      const db = getFirestore(app);
+
+      // THE REST OF THE SCRIPT REMAINS EXACTLY THE SAME
+      // Get HTML Elements
+      const loginSection = document.getElementById("login-section");
+      const adminPanel = document.getElementById("admin-panel");
+      const loginBtn = document.getElementById("loginBtn");
+      const adminEmail = document.getElementById("adminEmail");
+      const adminPassword = document.getElementById("adminPassword");
+      const loginStatus = document.getElementById("loginStatus");
+
+      // --- Login Logic ---
+      loginBtn.addEventListener("click", () => {
+        const email = adminEmail.value;
+        const password = adminPassword.value;
+        signInWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            // Signed in successfully
+            loginStatus.textContent = "Login successful!";
+            loginStatus.style.color = "lime";
+          })
+          .catch((error) => {
+            loginStatus.textContent = "Error: " + error.message;
+            loginStatus.style.color = "red";
+          });
+      });
+
+      // --- Auth State Change Logic ---
+      // This function checks if the user is logged in or out
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // User is signed in, show the admin panel and hide the login form
+          adminPanel.style.display = "block";
+          loginSection.style.display = "none";
+        } else {
+          // User is signed out, show the login form and hide the admin panel
+          adminPanel.style.display = "none";
+          loginSection.style.display = "block";
+        }
+      });
+
+      // --- Upload Logic (This is the same as before) ---
+      const addBtn = document.getElementById("addBtn");
+      const imageTitle = document.getElementById("imageTitle");
+      const imageUrl = document.getElementById("imageUrl");
+      const statusMessage = document.getElementById("statusMessage");
+
+      addBtn.addEventListener("click", async () => {
+        const title = imageTitle.value.trim();
+        const url = imageUrl.value.trim();
+        if (!title || !url) {
+          statusMessage.textContent = "Please provide both a title and a URL.";
+          return;
+        }
+        statusMessage.textContent = "Adding to gallery...";
+        try {
+          await addDoc(collection(db, "gallery"), {
+            title: title,
+            imageUrl: url,
+            likes: 0,
+            createdAt: serverTimestamp(),
+          });
+          statusMessage.textContent = "Success! Image added.";
+          imageTitle.value = "";
+          imageUrl.value = "";
+        } catch (error) {
+          console.error("Error adding document: ", error);
+          statusMessage.textContent = "Error: " + error.message;
+        }
+      });
+    </script>
+  </body>
+</html>
